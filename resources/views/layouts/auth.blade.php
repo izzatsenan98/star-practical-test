@@ -43,7 +43,7 @@
 @endsection
 
 @push('js')
-<script>
+<script nonce="{{ csp_nonce() }}">
   $(document).ready(function () {
     let width = 0;
     let progressInterval = setInterval(function () {
