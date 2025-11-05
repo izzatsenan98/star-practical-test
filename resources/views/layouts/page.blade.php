@@ -1,19 +1,41 @@
 @extends('layouts.base')
 
+@push('css')
+<style>
+  @media (max-width: 960px) {
+    .responsive-title {
+      font-size: 1.75rem;
+    }
+    .responsive-text {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .responsive-title {
+      font-size: 1.5rem;
+    }
+    .responsive-text {
+      font-size: 0.9rem;
+    }
+  }
+</style>    
+@endpush
+
 @section('main')
   @include('layouts.partials.page_navbar')
 
   <div class="container-fluid d-flex" style="min-height: calc(100vh - 68px);">
     <div class="row flex-grow-1 w-100">
-      <div class="col-md-4 p-0">
+      <div class="col-md-4 p-0 order-2 order-md-1">
         <div class="h-100 w-100 overflow-hidden">
           @yield('image')
         </div>
       </div>
 
-      <div class="col-md-8 d-flex flex-column justify-content-center align-items-start p-5 bg-light">
-        <h1 class="fw-bold mb-3">@yield('title')</h1>
-        <p class="lead text-muted mb-4">
+      <div class="col-md-8 d-flex flex-column justify-content-center align-items-start p-5 bg-light order-1 order-md-2">
+        <h1 class="fw-bold responsive-title mb-3">@yield('title')</h1>
+        <p class="lead text-muted responsive-text mb-4">
           @yield('content')
         </p>
       </div>
