@@ -34,7 +34,7 @@
 @endsection
 
 @push('js')
-  <script>
+  <script nonce="{{ csp_nonce() }}">
     $(document).ready(function() {
       $("#Consent").DataTable({
         scrollX: true,

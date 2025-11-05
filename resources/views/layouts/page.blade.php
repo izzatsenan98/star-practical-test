@@ -1,7 +1,10 @@
 @extends('layouts.base')
 
 @push('css')
-<style>
+<style nonce="{{ csp_nonce() }}">
+  .img-full-height {
+    min-height: calc(100vh - 68px);
+  }
   @media (max-width: 960px) {
     .responsive-title {
       font-size: 1.75rem;
@@ -25,7 +28,7 @@
 @section('main')
   @include('layouts.partials.page_navbar')
 
-  <div class="container-fluid d-flex" style="min-height: calc(100vh - 68px);">
+  <div class="container-fluid d-flex img-full-height">
     <div class="row flex-grow-1 w-100">
       <div class="col-md-4 p-0 order-2 order-md-1">
         <div class="h-100 w-100 overflow-hidden">
@@ -44,7 +47,7 @@
 @endsection
 
 @push('js')
-<script>
+<script nonce="{{ csp_nonce() }}">
   $(document).ready(function() {
     var cookie = @json(request()->cookie('visitor_guid'));
     var exception = @json(request()->is('terms-conditions') || request()->is('privacy'));

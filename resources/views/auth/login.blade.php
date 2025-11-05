@@ -45,7 +45,7 @@
 @endsection
 
 @push('js')
-<script>
+<script nonce="{{ csp_nonce() }}">
   $(document).ready(function() {
     $('#loginForm').on('submit', function(e) {
       e.preventDefault();

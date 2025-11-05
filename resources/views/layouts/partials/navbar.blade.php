@@ -11,7 +11,7 @@
       <li class="nav-item">
         <a class="nav-link" href="#" data-lte-toggle="fullscreen">
           <i data-lte-icon="maximize" class="bi bi-arrows-fullscreen"></i>
-          <i data-lte-icon="minimize" class="bi bi-fullscreen-exit" style="display: none;"></i>
+          <i data-lte-icon="minimize" class="bi bi-fullscreen-exit d-none"></i>
         </a>
       </li>
       <li class="nav-item dropdown user-menu">
@@ -25,12 +25,9 @@
             <p>{{ auth()->user()->name }}</p>
           </li>
           <li class="user-footer">
-            <a href="#" class="btn btn-outline-danger float-end" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-              Logout
-            </a>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            <form id="logout-form" action="{{ route('logout') }}" method="POST">
               @csrf
-              <button type="submit">Logout</button>
+              <button class="btn btn-outline-danger float-end" type="submit">Logout</button>
             </form>
           </li>
         </ul>

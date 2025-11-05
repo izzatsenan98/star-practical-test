@@ -17,7 +17,7 @@
   <link rel="icon" href="{{ asset('favicon.ico') }}">
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <link rel="stylesheet" href="{{ asset('dist/plugins/fontawesome-free/css/all.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('dist/plugins/overlayscrollbars/css/overlayscrollbars.min.css') }}">
+  {{-- <link rel="stylesheet" href="{{ asset('dist/plugins/overlayscrollbars/css/overlayscrollbars.min.css') }}"> --}}
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600&display=swap" rel="stylesheet">
 
 
@@ -64,7 +64,6 @@
 
   <!-- Datatable buttons -->
   <script src="{{ asset('dist/plugins/jszip/jszip.min.js') }}"></script>
-  {{-- <script src="{{ asset('dist/plugins/pdfmake/pdfmake.min.js') }}"></script> --}}
   <script src="{{ asset('dist/plugins/pdfmake/vfs_fonts.js') }}"></script>
   <script src="{{ asset('dist/plugins/datatable-buttons/js/dataTables.buttons.min.js') }}"></script>
   <script src="{{ asset('dist/plugins/datatable-buttons/js/buttons.bootstrap5.min.js') }}"></script>
@@ -72,7 +71,6 @@
   <script src="{{ asset('dist/plugins/datatable-buttons/js/buttons.html5.min.js') }}"></script>
   <script src="{{ asset('dist/plugins/datatable-buttons/js/buttons.colVis.min.js') }}"></script>
 
-  <script src="{{ asset('dist/plugins/overlayscrollbars/js/overlayscrollbars.browser.es6.min.js') }}"></script>
   <script src="{{ asset('dist/plugins/popperjs/popper.min.js') }}"></script>
   <script src="{{ asset('dist/plugins/bootstrap/bootstrap.min.js') }}"></script>
   <script src="{{ asset('dist/js/adminlte.js') }}"></script>
@@ -86,7 +84,7 @@
   <!-- Bootbox -->
   <script src="{{ asset('dist/bootbox/bootbox.js') }}"></script>
 
-  <script>
+  <script nonce="{{ csp_nonce() }}">
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
     var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
       return new bootstrap.Tooltip(tooltipTriggerEl)
@@ -97,21 +95,6 @@
       scrollbarAutoHide: "leave",
       scrollbarClickScroll: true,
     };
-    document.addEventListener("DOMContentLoaded", function() {
-      const sidebarWrapper = document.querySelector(SELECTOR_SIDEBAR_WRAPPER);
-      if (
-        sidebarWrapper &&
-        typeof OverlayScrollbarsGlobal?.OverlayScrollbars !== "undefined"
-      ) {
-        OverlayScrollbarsGlobal.OverlayScrollbars(sidebarWrapper, {
-          scrollbars: {
-            theme: Default.scrollbarTheme,
-            autoHide: Default.scrollbarAutoHide,
-            clickScroll: Default.scrollbarClickScroll,
-          },
-        });
-      }
-    });
   </script>
   <script src="{{ asset('dist/plugins/sortablejs/Sortable.min.js') }}"></script>
 
