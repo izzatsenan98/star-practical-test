@@ -81,6 +81,9 @@
   <!-- ApexCharts -->
   <script src="{{ asset('dist/plugins/apexcharts/apexcharts.min.js') }}"></script>
 
+  <!-- ChartJS -->
+  <script src="{{ asset('dist/chart.js/Chart.min.js') }}"></script>
+
   <!-- Bootbox -->
   <script src="{{ asset('dist/bootbox/bootbox.js') }}"></script>
 
