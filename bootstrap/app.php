@@ -1,6 +1,7 @@
 <?php
 
 use App\CustomCspPolicy;
+use App\Http\Middleware\TrackVisit;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -14,6 +15,7 @@ return Application::configure(basePath: dirname(__DIR__))
   )
   ->withMiddleware(function (Middleware $middleware) {
     $middleware->append(AddCspHeaders::class . ':' . CustomCspPolicy::class);
+    $middleware->append(TrackVisit::class);
   })
   ->withExceptions(function (Exceptions $exceptions) {
     //
